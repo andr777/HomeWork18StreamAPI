@@ -1,6 +1,7 @@
 package pro.sky.HomeWork18StreamAPI.Controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pro.sky.HomeWork18StreamAPI.Service.Employee;
 import pro.sky.HomeWork18StreamAPI.Service.EmployeeServiceIInterface;
 
+@Primary
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/emp")

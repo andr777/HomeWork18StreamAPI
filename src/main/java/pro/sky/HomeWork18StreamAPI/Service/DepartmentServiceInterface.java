@@ -1,6 +1,6 @@
 package pro.sky.HomeWork18StreamAPI.Service;
 
-public interface DepartmentServiceInterface extends EmployeeServiceIInterface {
+public interface DepartmentServiceInterface {
 
 
     String maxsalary(String department);
@@ -10,6 +10,8 @@ public interface DepartmentServiceInterface extends EmployeeServiceIInterface {
     String all(String department);
 
     String all();
+
+    boolean findDepartment(String department);
 
 
 }

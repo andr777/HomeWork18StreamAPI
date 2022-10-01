@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static pro.sky.HomeWork18StreamAPI.Service.EmployeeServiceImp.employeesListMap;
 
@@ -16,42 +17,102 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
 
     @Override
     public String maxsalary(String department) {
-        return null;
+
+        Employee eListDep;
+        List<Employee> employeesListDep = new ArrayList<>();
+        Map<String, Employee> employeesListMapDep = new HashMap<>();
+
+        double sal0 = 0;
+
+        for (Map.Entry<String, Employee> pair : employeesListMap.entrySet()) {
+            eListDep = pair.getValue();
+            if (department.equals(eListDep.getDepartment())) {
+                if (sal0 < eListDep.getSalary()) {
+                    sal0 = eListDep.getSalary();
+                    System.out.println(sal0);
+                    employeesListMapDep.put("max" + ' ' + "salary", eListDep);
+
+                }
+            }
+
+
+        }
+        System.out.println(department + " список max sal : " + employeesListMapDep.toString());
+        return employeesListMapDep.toString();
+
+
     }
 
     @Override
     public String minsalary(String department) {
-        return null;
+
+        Employee eListDep;
+        List<Employee> employeesListDep = new ArrayList<>();
+        Map<String, Employee> employeesListMapDep = new HashMap<>();
+
+        double sal0 = 9999999;
+
+        for (Map.Entry<String, Employee> pair : employeesListMap.entrySet()) {
+            eListDep = pair.getValue();
+            if (department.equals(eListDep.getDepartment())) {
+                if (sal0 > eListDep.getSalary()) {
+                    sal0 = eListDep.getSalary();
+                    System.out.println(sal0);
+                    employeesListMapDep.put("min" + ' ' + "salary", eListDep);
+
+                }
+            }
+
+
+        }
+        System.out.println(department + " список min sal : " + employeesListMapDep.toString());
+        return employeesListMapDep.toString();
+
+
+    }
+
+    @Override
+    public boolean findDepartment(String department) {
+        boolean find = false;
+        Employee eListDep;
+        List<Employee> employeesListDep = new ArrayList<>();
+        Map<String, Employee> employeesListMapDep = new HashMap<>();
+        for (Map.Entry<String, Employee> pair : employeesListMap.entrySet()) {
+            eListDep = pair.getValue();
+            if (department.equals(eListDep.getDepartment())) {
+                find = true;
+            }
+        }
+
+        return find;
     }
 
     @Override
     public String all(String department) {
-        return null;
+
+
+        Employee eListDep;
+        List<Employee> employeesListDep = new ArrayList<>();
+        Map<String, Employee> employeesListMapDep = new HashMap<>();
+
+        for (Map.Entry<String, Employee> pair : employeesListMap.entrySet()) {
+            eListDep = pair.getValue();
+            if (department.equals(eListDep.getDepartment())) {
+                employeesListMapDep.put(eListDep.getFirstName() + ' ' + eListDep.getLastName(), eListDep);
+
+            }
+        }
+        System.out.println(department + " список dep: " + employeesListMapDep.toString());
+        return employeesListMapDep.toString();
+
+
     }
 
     @Override
     public String all() {
-        System.out.println(" список: " + employeesListMap);
+        System.out.println(" список all: " + employeesListMap);
         return employeesListMap.toString();
     }
 
-    @Override
-    public String add(String name, String firstName, double salary, String lastName) {
-        return null;
-    }
 
-    @Override
-    public String employeeList() {
-        return null;
-    }
-
-    @Override
-    public boolean find(Employee fff) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Employee fff) {
-        return false;
-    }
 }

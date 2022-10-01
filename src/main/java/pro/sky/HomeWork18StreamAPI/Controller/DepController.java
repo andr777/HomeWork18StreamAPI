@@ -18,27 +18,23 @@ public class DepController {
 
     @GetMapping(path = "max-salary")
     public String max(@RequestParam(name = "departmentId") String department) {
-      //  String aaa =  employeeServiceIInterface.add(firstName, lastName, (double) salary ,department );
-        return " + " +  " " + department ;
+        return " max-salary " +  " " + departmentServiceInterface.maxsalary(department) ;
     }
 
     @GetMapping(path = "min-salary")
     public String min(@RequestParam(name = "departmentId") String department) {
-        //  String aaa =  employeeServiceIInterface.add(firstName, lastName, (double) salary ,department );
-        return " + " +  " " + department ;
+        return " min-salary " +  " " + departmentServiceInterface.minsalary(department)  ;
     }
 
     @GetMapping(path = "all", params = "departmentId")
     public String all(@RequestParam(name = "departmentId") String department) {
-        //  String aaa =  employeeServiceIInterface.add(firstName, lastName, (double) salary ,department );
-        return " + " +  " " + department ;
+        return department + " список: " +  departmentServiceInterface.all(department) ;
+
+
     }
 
     @GetMapping(path = "all")
     public String all() {
-        //  String aaa =  employeeServiceIInterface.add(firstName, lastName, (double) salary ,department );
-        //
-        // return " + " +  " all "  ;
         return " список: " +  departmentServiceInterface.all();
     }
 
