@@ -4,11 +4,9 @@ import org.springframework.stereotype.Service;
 import pro.sky.HomeWork18StreamAPI.Exceptions.EmployeeAlreadyAddedException;
 import pro.sky.HomeWork18StreamAPI.Exceptions.EmployeeNotFoundException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static pro.sky.HomeWork18StreamAPI.Service.EmployeeServiceImp.employeesListMap;
 
@@ -29,7 +27,7 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
             if (department.equals(eListDep.getDepartment())) {
                 if (sal0 < eListDep.getSalary()) {
                     sal0 = eListDep.getSalary();
-                    System.out.println(sal0);
+                    // System.out.println(sal0);
                     employeesListMapDep.put("max" + ' ' + "salary", eListDep);
 
                 }
@@ -37,8 +35,27 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
 
 
         }
-        System.out.println(department + " список max sal : " + employeesListMapDep.toString());
-        return employeesListMapDep.toString();
+        //  System.out.println(department + " список max sal : " + employeesListMapDep.toString());
+
+
+        // HashMap<Object, Object> employees = new HashMap<>();
+ /*       Stream<Employee> stream = employeesListMap.values().stream();
+        stream.filter(employee -> employee.getDepartment().equals(department))
+                .max(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(EmployeeNotFoundException::new);
+        System.out.println(" strim " +
+                stream
+        );
+
+  */
+
+        return String.valueOf(employeesListMap.values().stream()
+                .filter(employeesListMap -> employeesListMap.getDepartment().equals(department))
+                .max(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(EmployeeNotFoundException::new));
+
+        //  return " maxsalary " + stream;
+        //  return employeesListMapDep.toString();
 
 
     }
@@ -46,6 +63,12 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
     @Override
     public String minsalary(String department) {
 
+        return String.valueOf(employeesListMap.values().stream()
+                .filter(employeesListMap -> employeesListMap.getDepartment().equals(department))
+                .min(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(EmployeeNotFoundException::new));
+
+        /*
         Employee eListDep;
         List<Employee> employeesListDep = new ArrayList<>();
         Map<String, Employee> employeesListMapDep = new HashMap<>();
@@ -69,6 +92,8 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
         return employeesListMapDep.toString();
 
 
+         */
+
     }
 
     @Override
@@ -89,8 +114,11 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
 
     @Override
     public String all(String department) {
+        return employeesListMap.values().stream()
+                .filter(employeesListMap -> employeesListMap.getDepartment().equals(department))
+                .collect(Collectors.toList()).toString();
 
-
+/*
         Employee eListDep;
         List<Employee> employeesListDep = new ArrayList<>();
         Map<String, Employee> employeesListMapDep = new HashMap<>();
@@ -104,6 +132,9 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
         }
         System.out.println(department + " список dep: " + employeesListMapDep.toString());
         return employeesListMapDep.toString();
+
+
+ */
 
 
     }

@@ -45,6 +45,8 @@ http://localhost:8080/emp/add?firstName=Vasia&lastName=Vasichkin&salary=1111&dep
 
 http://localhost:8080/emp/add?firstName=Ivan&lastName=Ivanov&salary=2222&department=department_02
 
+http://localhost:8080/emp/add?firstName=Masha&lastName=Ivanova&salary=555&department=5
+
 http://localhost:8080/emp/list
 
 http://localhost:8080/emp/find?firstName=Vasia&lastName=Vasichkin
