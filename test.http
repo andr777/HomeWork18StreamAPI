@@ -1,0 +1,17 @@
+GET http://localhost:8080/emp/add?firstName=Mas66ha&lastName=Ivanov66a&salary=5565&department=5
+
+###
+GET http://localhost:8080/emp/add?firstName=Vasia&lastName=Vasichkin&salary=1111&department=department_01
+
+###
+GET http://localhost:8080/emp/add?firstName=Masha&lastName=Ivanova&salary=555&department=5
+
+###
+GET http://localhost:8080/emp/list
+
+http://localhost:8080/departments/all?departmentId=5
+
+
+http://localhost:8080/departments/max-salary?departmentId=5
+
+http://localhost:8080/departments/min-salary?departmentId=5

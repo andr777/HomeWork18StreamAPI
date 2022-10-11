@@ -10,6 +10,11 @@ import pro.sky.HomeWork18StreamAPI.Service.DepartmentServiceInterface;
 import pro.sky.HomeWork18StreamAPI.Service.Employee;
 import pro.sky.HomeWork18StreamAPI.Service.EmployeeServiceIInterface;
 
+import java.awt.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/departments")
@@ -17,25 +22,25 @@ public class DepController {
    private final DepartmentServiceInterface departmentServiceInterface;
 
     @GetMapping(path = "max-salary")
-    public String max(@RequestParam(name = "departmentId") String department) {
-        return " max-salary " +  " " + departmentServiceInterface.maxsalary(department) ;
+    public Employee max(@RequestParam(name = "departmentId") String department) {
+        return departmentServiceInterface.maxsalary(department) ;
     }
 
     @GetMapping(path = "min-salary")
-    public String min(@RequestParam(name = "departmentId") String department) {
-        return " min-salary " +  " " + departmentServiceInterface.minsalary(department)  ;
+    public Employee min(@RequestParam(name = "departmentId") String department) {
+        return departmentServiceInterface.minsalary(department)  ;
     }
 
     @GetMapping(path = "all", params = "departmentId")
-    public String all(@RequestParam(name = "departmentId") String department) {
-        return department + " список: " +  departmentServiceInterface.all(department) ;
+    public Collection<Employee>  all(@RequestParam(name = "departmentId") String department) {
+        return departmentServiceInterface.all(department) ;
 
 
     }
 
     @GetMapping(path = "all")
-    public String all() {
-        return " список: " +  departmentServiceInterface.all();
+    public Map<String, List<Employee>> all() {
+        return departmentServiceInterface.all();
     }
 
 }

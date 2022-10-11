@@ -23,7 +23,7 @@ public class EmpController {
                        @RequestParam(name = "lastName") String lastName,
                        @RequestParam(name = "salary") int salary,
                        @RequestParam(name = "department") String department) {
-      String aaa =  employeeServiceIInterface.add(firstName, lastName, (double) salary ,department );
+      Employee aaa =  employeeServiceIInterface.add(firstName, lastName, (double) salary ,department );
          return " + " + firstName + " " + lastName + " " + aaa;
     }
 

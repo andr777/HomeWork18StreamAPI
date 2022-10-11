@@ -1,15 +1,19 @@
 package pro.sky.HomeWork18StreamAPI.Service;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 public interface DepartmentServiceInterface {
 
 
-    String maxsalary(String department);
+    Employee maxsalary(String department);
 
-    String minsalary(String department);
+    Employee minsalary(String department);
 
-    String all(String department);
+    Collection<Employee>  all(String department);
 
-    String all();
+    Map<String, List<Employee>> all();
 
     boolean findDepartment(String department);
 

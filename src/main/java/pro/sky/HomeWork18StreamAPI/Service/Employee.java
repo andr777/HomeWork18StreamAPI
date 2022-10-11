@@ -82,5 +82,7 @@ public class Employee {
         return this.firstName + ", " + this.lastName + ", " + this.salary + ", " + this.department;
     }
 
-
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 }
