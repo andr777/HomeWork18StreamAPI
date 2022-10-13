@@ -42,32 +42,32 @@ public class EmployeeServiceImp implements EmployeeServiceIInterface {
     }
 
     @Override
-    public boolean find(Employee fff) {
-        boolean f = false;
+    public boolean find(Employee employee) {
+        boolean flagFinfEmployee = false;
 
-        f = employeesListMap.containsValue(fff);
+        flagFinfEmployee = employeesListMap.containsValue(employee);
 
-        return f;
+        return flagFinfEmployee;
     }
 
     @Override
-    public boolean remove(Employee fff) {
-        boolean f = false;
+    public boolean remove(Employee employee) {
+        boolean flagRemoveOk = false;
 
-        if (find(fff)) {
-            employeesListMap.remove(fff.getFirstName() + " " + fff.getLastName());
-            System.out.println(fff + " удалён  ");
-            f = true;
+        if (find(employee)) {
+            employeesListMap.remove(employee.getFirstName() + " " + employee.getLastName());
+            System.out.println(employee + " удалён  ");
+            flagRemoveOk = true;
 
         } else {
-            System.out.println(fff + " не найден");
-            f = false;
+            System.out.println(employee + " не найден");
+            flagRemoveOk = false;
             throw new EmployeeNotFoundException();
 
         }
 
 
-        return f;
+        return flagRemoveOk;
     }
 
 

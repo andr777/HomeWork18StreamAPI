@@ -37,7 +37,7 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
                 .orElseThrow(EmployeeNotFoundException::new);
     }
     @Override
-    public Collection<Employee> all(String department) {
+    public Collection<Employee> AllReturnAllEmployeesOfADepartmentOrReturnAllEmployeesDividedByDepartment(String department) {
         return employeeServiceImp.getAll().stream()
                 .filter(employee -> employee.getDepartment().equals(department))
                 .collect(Collectors.toList());
@@ -46,7 +46,7 @@ public class DepartmentServiceImp implements DepartmentServiceInterface {
 
 
     @Override
-    public Map<String, List<Employee>> all() {
+    public Map<String, List<Employee>> AllReturnAllEmployeesOfADepartmentOrReturnAllEmployeesDividedByDepartment() {
         return employeeServiceImp.getAll().stream()
                                .collect(Collectors.groupingBy(Employee::getDepartment));
     }

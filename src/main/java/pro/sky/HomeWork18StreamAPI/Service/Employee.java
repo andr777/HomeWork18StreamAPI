@@ -14,6 +14,8 @@ public class Employee {
 
     private String  department;  //Отдел
 
+   //Зачем такой конструктор? Если тебе нужен пустой - сделай пустой конструктор. [ iStemmer Pavel ]
+    // я не знаю зачем оно, без него не работает и не компилится... пусть будет если работает как то.
     public Employee() {
         this(null, null, 0, null);
     }

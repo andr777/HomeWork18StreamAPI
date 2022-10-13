@@ -11,9 +11,15 @@ public interface DepartmentServiceInterface {
 
     Employee minsalary(String department);
 
-    Collection<Employee>  all(String department);
+    //Возвращать всех сотрудников по отделу. /departments/all?departmentId=5
+    // плохое название метода, all что? [ iStemmer Pavel ]
+    // ok. заменил all на более лучшее название.
+    Collection<Employee> AllReturnAllEmployeesOfADepartmentOrReturnAllEmployeesDividedByDepartment(String department);
 
-    Map<String, List<Employee>> all();
+    //Возвращать всех сотрудников с разделением по отделам.  /departments/all
+    // плохое название метода, all что? [ iStemmer Pavel ]
+    // ok. заменил all на более лучшее название.
+    Map<String, List<Employee>> AllReturnAllEmployeesOfADepartmentOrReturnAllEmployeesDividedByDepartment();
 
     boolean findDepartment(String department);
 

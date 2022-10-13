@@ -49,8 +49,8 @@ public class EmpController {
     @GetMapping(path = "remove")
     public String remove(@RequestParam(name = "firstName") String firstName,
                        @RequestParam(name = "lastName") String lastName) {
-        Employee fff = new Employee(firstName, lastName , (double) 0, null);
-        if(employeeServiceIInterface.remove(fff)){
+        Employee oneEmployee = new Employee(firstName, lastName , (double) 0, null);
+        if(employeeServiceIInterface.remove(oneEmployee)){
             System.out.println("ArrayList remove ");
             return " - " + firstName + " " + lastName + " remove в списке";
         } else {

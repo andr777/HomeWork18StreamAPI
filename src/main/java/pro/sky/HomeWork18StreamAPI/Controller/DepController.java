@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.HomeWork18StreamAPI.Service.DepartmentServiceInterface;
 import pro.sky.HomeWork18StreamAPI.Service.Employee;
-import pro.sky.HomeWork18StreamAPI.Service.EmployeeServiceIInterface;
 
-import java.awt.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -22,25 +20,25 @@ public class DepController {
    private final DepartmentServiceInterface departmentServiceInterface;
 
     @GetMapping(path = "max-salary")
-    public Employee max(@RequestParam(name = "departmentId") String department) {
+    public Employee findMax(@RequestParam(name = "departmentId") String department) {
         return departmentServiceInterface.maxsalary(department) ;
     }
 
     @GetMapping(path = "min-salary")
-    public Employee min(@RequestParam(name = "departmentId") String department) {
+    public Employee findMin(@RequestParam(name = "departmentId") String department) {
         return departmentServiceInterface.minsalary(department)  ;
     }
 
     @GetMapping(path = "all", params = "departmentId")
     public Collection<Employee>  all(@RequestParam(name = "departmentId") String department) {
-        return departmentServiceInterface.all(department) ;
+        return departmentServiceInterface.AllReturnAllEmployeesOfADepartmentOrReturnAllEmployeesDividedByDepartment(department) ;
 
 
     }
 
     @GetMapping(path = "all")
     public Map<String, List<Employee>> all() {
-        return departmentServiceInterface.all();
+        return departmentServiceInterface.AllReturnAllEmployeesOfADepartmentOrReturnAllEmployeesDividedByDepartment();
     }
 
 }
