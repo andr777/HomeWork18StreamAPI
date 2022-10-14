@@ -20,11 +20,11 @@ public class EmployeeServiceImp implements EmployeeServiceIInterface {
 
         Employee employees = new Employee(firstName, lastName,  salary,  department);
 
-        boolean f = false;
+
 
         if (find(employees)) {
             System.out.println(employees + " этот уже есть в списке.");
-            f = true;
+
             throw new EmployeeAlreadyAddedException();
         } else {
             employeesListMap.put(firstName + ' ' + lastName, employees);
