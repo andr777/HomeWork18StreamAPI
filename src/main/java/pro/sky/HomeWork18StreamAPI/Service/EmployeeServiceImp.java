@@ -14,11 +14,15 @@ public class EmployeeServiceImp implements EmployeeServiceIInterface {
    // List<Employee> employeesList = new ArrayList<>();
     private Map<String, Employee> employeesListMap = new HashMap<>();
 
+    private final СheckNameFamile СheckNameOrFamile = new СheckNameFamile();
     @Override
     public Employee add(String firstName, String lastName, double salary, String department) {
 
 
-        Employee employees = new Employee(firstName, lastName,  salary,  department);
+        Employee employees = new Employee(
+                СheckNameOrFamile.СheckNameFamile(firstName),
+                СheckNameOrFamile.СheckNameFamile(lastName),
+                salary,  department);
 
 
 
